@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1466329105 source:d:\documents\visual studio 2013\projects\repo2016\gametut\gametut\conf.cpp
+	"conf.h"
+
+1467062431 d:\documents\visual studio 2013\projects\repo2016\gametut\gametut\conf.h
+	<Keycodes.h>
+
+1351955312 c:\irrdev\irrlicht\include\keycodes.h
+

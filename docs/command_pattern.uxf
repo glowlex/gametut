@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.1.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1020</x>
+      <y>600</y>
+      <w>100</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>/Command/
+--
++Command()
+/+~Command()/
+/+execute(): int/
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1060</x>
+      <y>670</y>
+      <w>30</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>590</x>
+      <y>780</y>
+      <w>420</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>/BackendCommand/
+--
++BackendCommand()
++BackendCommand(sender: GameObject*, target: GameObject*)
+/~BackendCommand()/
++get_sender(): GameObject*
++get_target(): GameObject*
+--
+#_sender: GameObject*
+#_target: GameObject*
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1220</x>
+      <y>800</y>
+      <w>190</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>/FrontendCommand/
+--
++FrontendCommand()
+/+~FrontendCommand()/
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>780</x>
+      <y>750</y>
+      <w>560</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;30.0;10.0;10.0;540.0;10.0;540.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1230</x>
+      <y>980</y>
+      <w>160</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>/InputCommand/
+--
++InputCommand()
+/+~InputCommand()/
+/+execute(): int/
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1500</x>
+      <y>980</y>
+      <w>150</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>/OutputCommand/
+--
++OutputCommand()
+/+~OutputCommand()/
+/+execute(): int/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1300</x>
+      <y>880</y>
+      <w>30</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1300</x>
+      <y>920</y>
+      <w>300</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;280.0;10.0;280.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1020</x>
+      <y>1120</y>
+      <w>240</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Some User Input Command classes, 
+e.g. Inventory commands, 
+Local Map (battle) commands,
+Global Map commands, 
+Settlement commands
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1130</x>
+      <y>1000</y>
+      <w>120</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>100.0;10.0;10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1560</x>
+      <y>1050</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1450</x>
+      <y>1120</y>
+      <w>260</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Some Output Command classes for
+graphics control and so one (these are
+supposed to intract with Irrlicht)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>990</y>
+      <w>660</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>/LocalMapCommand/
+--
++LocalMapCommand()
++LocalMapCommand(sender: GameObject*, target: GameObject*)
++LocalMapCommand(sender_x_coord: int, sender_y_coord: int, target_x_coord: int, target_y_coord: int)
+/+~LocalMapCommand()/
+--
+#get_object_by_coords(x_coord: int, y_coord: int): int
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>320</x>
+      <y>80</y>
+      <w>250</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Color notation:
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>110</y>
+      <w>250</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Realized
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>140</y>
+      <w>250</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>In development (partially realized)
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>170</y>
+      <w>250</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Not realized yet</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>310</x>
+      <y>920</y>
+      <w>510</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>490.0;10.0;490.0;40.0;10.0;40.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>1180</y>
+      <w>140</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>MoveCommand
+--
+/+execute(): int/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>520</x>
+      <y>1180</y>
+      <w>140</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>UseAbilityCommand
+--
+/+execute(): int/
+--
+#ability_id: int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>60</x>
+      <y>1100</y>
+      <w>270</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>250.0;10.0;250.0;50.0;10.0;50.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>1140</y>
+      <w>320</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;300.0;10.0;300.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>890</x>
+      <y>0</y>
+      <w>340</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>/CommandQuery/
+--
++CommandQuery()
+/+~CommandQuery()/
+/+clear(): int/
+/+erase(id: int): int/
+/+search_by_sender(query: GameObject*): int*/
+/+search_by_target(query: GameObject*): int*/
+/+AddCommand(new_command: Command**): int/
+/+ExecuteFirst(): int/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1210</x>
+      <y>320</y>
+      <w>320</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>/FrontendQuery/
+--
++FrontendQuery()
+/+~FrontendQuery()/
+/+clear(): int/
+/+erase(id: int): int/
+/+search_by_sender(query: GameObject*): int*/
+/+search_by_target(query: GameObject*): int*/
+/+AddCommand(new_command: Command**): int/
+/+ExecuteFirst(): int/
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>600</x>
+      <y>330</y>
+      <w>320</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>BackendQuery
+--
++BackendQuery()
+/+~BackendQuery()/
+/+clear(): int/
+/+erase(id: int): int/
+/+search_by_sender(query: GameObject*): int*/
+/+search_by_target(query: GameObject*): int*/
+/+AddCommand(new_command: Command**): int/
+/+ExecuteFirst(): int/
+--
+#_query: std::vector&lt;BackendCommand*&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>150</y>
+      <w>350</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>330.0;10.0;330.0;80.0;10.0;80.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1060</x>
+      <y>220</y>
+      <w>340</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;320.0;10.0;320.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1680</x>
+      <y>240</y>
+      <w>320</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>InputQuery
+--
++InputQuery()
+/+~InputQuery()/
+/+clear(): int/
+/+erase(id: int): int/
+/+search_by_sender(query: GameObject*): int*/
+/+search_by_target(query: GameObject*): int*/
+/+AddCommand(new_command: Command**): int/
+/+ExecuteFirst(): int/
+--
+#_query: std::vector&lt;InputCommand*&gt;
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1680</x>
+      <y>510</y>
+      <w>320</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>OutputQuery
+--
++OutputQuery()
+/+~OutputQuery()/
+/+clear(): int/
+/+erase(id: int): int/
+/+search_by_sender(query: GameObject*): int*/
+/+search_by_target(query: GameObject*): int*/
+/+AddCommand(new_command: Command**): int/
+/+ExecuteFirst(): int/
+--
+#_query: std::vector&lt;OutputCommand*&gt;
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1520</x>
+      <y>320</y>
+      <w>180</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;100.0;90.0;100.0;90.0;10.0;160.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1600</x>
+      <y>410</y>
+      <w>100</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>80.0;200.0;10.0;200.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1640</x>
+      <y>680</y>
+      <w>240</w>
+      <h>370</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=0..*</panel_attributes>
+    <additional_attributes>220.0;10.0;220.0;340.0;10.0;340.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1290</x>
+      <y>330</y>
+      <w>840</w>
+      <h>950</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=0..*</panel_attributes>
+    <additional_attributes>710.0;10.0;820.0;10.0;820.0;930.0;10.0;930.0;10.0;730.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>730</x>
+      <y>500</y>
+      <w>50</w>
+      <h>300</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=0..*</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;280.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1110</x>
+      <y>490</y>
+      <w>300</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+provides new commands &gt;</panel_attributes>
+    <additional_attributes>10.0;150.0;280.0;150.0;280.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>770</x>
+      <y>500</y>
+      <w>270</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+&lt; provides new commands </panel_attributes>
+    <additional_attributes>250.0;150.0;10.0;150.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>320</x>
+      <y>220</y>
+      <w>250</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>"Command" pattern realization
+for Merc Days project
+(see pattern in Nystrom's
+"Game programming patterns")</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

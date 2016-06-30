@@ -1,0 +1,2064 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.1.1">
+  <help_text>// Uncomment the following line to change the fontsize and font:
+fontsize=14
+fontfamily=SansSeriff //possible: SansSerif,Serif,Monospaced
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// Welcome to UMLet!
+//
+// Double-click on elements to add them to the diagram, or to copy them
+// Edit elements by modifying the text in this panel
+// Hold Ctrl to select multiple elements
+// Use Ctrl+mouse to select via lasso
+//
+// Use +/- or Ctrl+mouse wheel to zoom
+// Drag a whole relation at its central square icon
+//
+// Press Ctrl+C to copy the whole diagram to the system clipboard (then just paste it to, eg, Word)
+// Edit the files in the "palettes" directory to create your own element palettes
+//
+// Select "Custom Elements &gt; New..." to create new element types
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// This text will be stored with each diagram;  use it for notes.</help_text>
+  <zoom_level>5</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1705</x>
+      <y>385</y>
+      <w>110</w>
+      <h>125</h>
+    </coordinates>
+    <panel_attributes>/GameObject/
+--
+_#id: int_
+#own_id: int
+#level: int
+#name: char*
+--
++GameObject()
++GameObject(level: int)
++get_id(): int
++get_own_id(): int
++get_level(): int
++get_name(): char*
+/+get_class(): TClassId/
+_/+get_by_id(id: int): GameObject*/_
++set_name(inp_name: char*) </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1515</x>
+      <y>505</y>
+      <w>260</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=1</panel_attributes>
+    <additional_attributes>500.0;10.0;500.0;70.0;10.0;70.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2990</x>
+      <y>560</y>
+      <w>155</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>/StaticGameObject/
+--
+#description: char*
+--
++StaticObject()
++StaticGameObject(level: int)
++StaticGameObject(min_level:int, max_level:int)
+/+~StaticGameObject()/
+/+get_class(): TClassId/
+/+get_by_id(): StaticGameObject*/
++get_description(): char*
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1760</x>
+      <y>530</y>
+      <w>1330</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>
+group=1</panel_attributes>
+    <additional_attributes>10.0;20.0;2640.0;20.0;2640.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1430</x>
+      <y>560</y>
+      <w>195</w>
+      <h>225</h>
+    </coordinates>
+    <panel_attributes>/AliveGameObject/
+--
+#health: int*
+#coords: int*
+#exp: int*
+#doll: TDollSlot*
+#bag: Item*
+--
++AliveGameObject()
++AliveGameObject(level: int)
++AliveGameObject(min_level:int, max_level:int)
+/+~AliveGameObject()/
++get_health(): int*
++get_coords(): int*
++get_exp(): int*
++get_bag(): Item*
++get_doll(): EquipableItem*
++get_damage(): int* {returns damage from equipped weapon}
+/+get_class(): TClassId/
+/+get_by_id(): AliveGameObject*/
++set_health(inp_health: int*)
++set_coords(inp_coords: int*)
++set_exp(inp_exp: int*)
++set_bag(inp_bag: Item*)
++set_doll(inp_doll: Item*)
+/+move(offset: int*): void/
+/+level_up(): void/
+/+send_action(queue: Turn*, action* Action)/
++is_dead(): bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1520</x>
+      <y>780</y>
+      <w>15</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=2</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1040</x>
+      <y>835</y>
+      <w>630</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>group=2</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0;1240.0;10.0;1240.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1590</x>
+      <y>855</y>
+      <w>150</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>/PartyMember/
+--
+#stats: int*
+#skillpoints: int
+--
++PartyMember()
++PartyMember(level: int)
++PartyMember(min_level: int, max_level: int)
+/+~PartyMember()/
++get_skillpoints(): int
++get_stats(): int*
+/+get_class(): TClassId/
++set_skillpoints(inp_sp: int)
++set_stats(inp_stats: int*)
+/+level_up(): void/
+/+stat_up(stat_ind: int)/
+/+send_action(queue: Turn*, action: Action*)/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>940</x>
+      <y>855</y>
+      <w>210</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>/Monster/
+--
+#cash: int
+#morale: int
+#pack_id: int
+#is_leader: bool
+#is_mass_leader: bool
+--
++Monster()
++Monster(level: int)
++Monster(min_level: int, max_level: int, tmp: TMonsterTemplate)
++Monster(save_data: TMonsterSaveData)
+/+~Monster()/
+/+get_class(): TClassId/
++get_cash(): int
++get_pack_id(): int
++get_is_leader(): bool
++get_is_mass_leader(): bool
++get_morale(): int
++set_cash(inp_cash: int*)
++set_pack_id(inp_packid: int)
++set_is_leader(inp_is_leader: bool)
++set_is_mass_leader(inp_is_mass_leader: bool)
++set_morale(inp_morale: int)
+/+send_action(queue: Turn*, action: Action*)/
++save(): TMonsterSaveData
+/+decision(): Action*/
++try_set_elite()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1715</x>
+      <y>0</y>
+      <w>105</w>
+      <h>330</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+TClassId
+--
+CI_GAME_OBJECT
+CI_STATIC_GAME_OBJECT
+CI_ITEM
+CI_USABLE_ITEM
+CI_HEALING_ITEM
+CI_FOOD
+CI_COLLECTABLE
+CI_QUEST_ITEM
+CI_RESOURCE
+CI_EQUIPABLE_ITEM
+CI_WEAPON
+CI_RANGED_WEAPON
+CI_MELEE_WEAPON
+CI_ARMOR
+CI_NPC
+CI_QUEST_GIVER
+CI_TRADER
+CI_WEAPON_TRADER
+CI_ARMOR_TRADER
+CI_MUNITIONS_TRADER
+CI_BLACK_MARKET
+CI_LOCATION
+CI_SETTLEMENT
+CI_WILDLANDS
+CI_QUEST_PLACE
+CI_MAP_TILE
+CI_COMMON_TILE
+CI_UNPASSABLE_TILE
+CI_ALIVE_GAME_OBJECT
+CI_PARTY_MEMBER
+CI_PLAYER
+CI_HENCHMEN
+CI_MONSTER
+CI_QUEST_MONSTER
+CI_COMMON_MONSTER
+CI_DAMAGER_MONSTER
+CI_GRUNT_MONSTER
+CI_SUPPORT_MONSTER</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1755</x>
+      <y>325</y>
+      <w>65</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=-
+get_class() 
+return data type</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1655</x>
+      <y>990</y>
+      <w>15</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;250.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1465</x>
+      <y>1155</y>
+      <w>125</w>
+      <h>155</h>
+    </coordinates>
+    <panel_attributes>Player
+--
+#cash: int
+#curr_quest: Quest*
+#bank: Item*
+#storage: Item*
+--
++Player()
++Player(save_data: TPlayerSaveData)
+/+~Player()/
+/+get_class(): TClassId/
++get_cash(): int
++get_curr_quest(): Quest*
++get_bank(): Item*
++get_storage(): Item*
++set_curr_quest(): Quest*
++set_bank(): Item*
++set_storage(): Item*
++set_cash(): int
++save(): TPlayerSaveData
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1715</x>
+      <y>1155</y>
+      <w>155</w>
+      <h>155</h>
+    </coordinates>
+    <panel_attributes>Henchman
+--
+#salary: int
+#mood: int
+--
++Henchman()
++Henchman(level: int)
++Henchman(min_level: int, max_level: int)
++Henchman(save_data: THenchmanSaveData)
+/+get_class(): TClassId/
++get_salary(): int
++get_mood(): int
++set_salary()
++set_mood()
++is_leaving(): bool
++payday()
++save(): THenchmanSaveData </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1520</x>
+      <y>1105</y>
+      <w>285</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;100.0;10.0;20.0;550.0;20.0;550.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1040</x>
+      <y>1070</y>
+      <w>305</w>
+      <h>95</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=3</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0;590.0;90.0;590.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>975</x>
+      <y>1155</y>
+      <w>225</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>GruntMonster
+--
+
+--
++GruntMonster()
++GruntMonster(level: int)
++GruntMonster(min_level: int, max_level: int, tmp: TMonsterTemplate)
++GruntMonster(save_data: TMonsterSaveData)
+/+~GruntMonster()/
+/+get_class(): TClassId/
+/+decision(): Action*/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>725</x>
+      <y>1155</y>
+      <w>235</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>DamagerMonster
+--
+
+--
++DamagerMonster()
++DamagerMonster(level: int)
++DamagerMonster(min_level: int, max_level: int, tmp: TMonsterTemplate)
++DamagerMonster(save_data: TMonsterSaveData)
+/+~DamagerMonster()/
+/+get_class(): TClassId/
+/+decision(): Action*/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>1155</y>
+      <w>225</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>QuestMonster
+--
+#quest: Quest*
+--
++QuestMonster()
++QuestMonster(level: int)
++QuestMonster(min_level: int, max_level: int, tmp: TMonsterTemplate)
++QuestMonster(save_data: TMonsterSaveData)
+/+~QuestMonster()/
+/+get_class(): TClassId/
+/+decision(): Action*/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>480</x>
+      <y>1155</y>
+      <w>235</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>SupportMonster
+--
+
+--
++SupportMonster()
++SupportMonster(level: int)
++SupportMonster(min_level: int, max_level: int, tmp: TMonsterTemplate)
++SupportMonster(save_data: TMonsterSaveData)
+/+~SupportMonster()/
+/+get_class(): TClassId/
+/+decision(): Action*/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1215</x>
+      <y>1155</y>
+      <w>235</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>DamagerMonster
+--
+
+--
++DamagerMonster()
++DamagerMonster(level: int)
++DamagerMonster(min_level: int, max_level: int, tmp: TMonsterTemplate)
++DamagerMonster(save_data: TMonsterSaveData)
+/+~DamagerMonster()/
+/+get_class(): TClassId/
+/+decision(): Action*/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>235</x>
+      <y>1155</y>
+      <w>235</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>CommonMonster
+--
+
+--
++CommonMonster()
++CommonMonster(level: int)
++CommonMonster(min_level: int, max_level: int, tmp: TMonsterTemplate)
++CommonMonster(save_data: TMonsterSaveData)
+/+~CommonMonster()/
+/+get_class(): TClassId/
+/+decision(): Action*/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1040</x>
+      <y>1110</y>
+      <w>15</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=-
+
+group=3</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>590</x>
+      <y>1110</y>
+      <w>15</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=-
+
+group=3</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>105</x>
+      <y>1110</y>
+      <w>950</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=-
+group=3</panel_attributes>
+    <additional_attributes>1880.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>840</x>
+      <y>1110</y>
+      <w>15</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=-
+
+group=3</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>350</x>
+      <y>1110</y>
+      <w>15</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=-
+
+group=3</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>105</x>
+      <y>1110</y>
+      <w>15</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=-
+
+group=3</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>940</x>
+      <y>730</y>
+      <w>60</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+TActionList
+--
+AL_IDLE
+AL_MOVE
+AL_COVER
+AL_CAST
+AL_ATTACK
+AL_FLEE</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1845</x>
+      <y>675</y>
+      <w>230</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>/Action/
+--
+#sender: AliveGameObject*
+--
++Action(sender: AliveGameObject*)
+/+~Action()/
+/+implement()/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>960</x>
+      <y>800</y>
+      <w>45</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+decision()</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1630</x>
+      <y>770</y>
+      <w>130</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>IdleAction
+--
+
+--
++IdleAction(sender: AliveGameObject*)
+/+~IdleAction()/
+/+implement()/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1765</x>
+      <y>770</y>
+      <w>175</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>MoveAction
+--
+#target: Tile*
+--
++MoveAction(sender: AliveGameObject*, target: Tile*)
+/+~MoveAction()/
+/+implement()/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2125</x>
+      <y>770</y>
+      <w>190</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>/CastAction/
+--
+#ability_id: Ability*
+--
++CastAction(sender: AliveGameObject*, ability_id: Ability*)
+/+~CastAction()/
+/+implement()/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2320</x>
+      <y>770</y>
+      <w>220</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>AttackAction
+--
+#target: AliveGameObject*
+--
++AttackAction(sender: AliveGameObject*, target: AliveGameObject*)
+/+~AttackAction()/
+/+implement()/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2260</x>
+      <y>865</y>
+      <w>240</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>AoeCastAction
+--
+#target: Tile*
+--
++AoeCastAction(sender: AliveGameObject*, ability_id: Ability*, target: Tile*)
+/+~AoeCastAction()/
+/+implement()/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1960</x>
+      <y>865</y>
+      <w>290</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>DirectCastAction
+--
+#target: AliveGameObject*
+--
++DirectCastAction(sender: AliveGameObject*, ability_id: Ability*, target: AliveGameObject*)
+/+~DirectCastAction()/
+/+implement()/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1980</x>
+      <y>725</y>
+      <w>15</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1690</x>
+      <y>740</y>
+      <w>900</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>1780.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2185</x>
+      <y>835</y>
+      <w>140</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>260.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1690</x>
+      <y>745</y>
+      <w>15</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1830</x>
+      <y>745</y>
+      <w>15</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2415</x>
+      <y>745</y>
+      <w>15</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2245</x>
+      <y>815</y>
+      <w>15</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2310</x>
+      <y>840</y>
+      <w>15</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2185</x>
+      <y>840</y>
+      <w>15</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1620</x>
+      <y>670</y>
+      <w>235</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=-
+is send_action() argument, decision() return</panel_attributes>
+    <additional_attributes>10.0;20.0;450.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2215</x>
+      <y>745</y>
+      <w>15</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1945</x>
+      <y>770</y>
+      <w>175</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>CoverAction
+--
+#target: Tile*
+--
++CoverAction(sender: AliveGameObject*, target: Tile*)
+/+~CoverAction()/
+/+implement()/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2575</x>
+      <y>745</y>
+      <w>15</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2545</x>
+      <y>770</y>
+      <w>170</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>FleeAction
+--
+#target: Tile*
+--
++FleeAction(sender: AliveGameObject*, target: Tile*)
+/+~FleeAction()/
+/+implement()/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2795</x>
+      <y>625</y>
+      <w>140</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>/Item/
+--
+#cost: int
+--
+/+~Item()/
++get_cost(): int
+/+get_class(): TClassId/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2945</x>
+      <y>650</y>
+      <w>60</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+TItemRareness
+--
+IR_TRASH
+IR_COMMON
+IR_GOOD
+IR_RARE
+IR_EPIC
+IR_LEGENDARY
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2930</x>
+      <y>625</y>
+      <w>55</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;10.0;90.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2895</x>
+      <y>560</y>
+      <w>105</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>190.0;10.0;10.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1620</x>
+      <y>570</y>
+      <w>1205</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;2390.0;10.0;2390.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2760</x>
+      <y>770</y>
+      <w>100</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>/UsableItem/
+--
+#req_level: int
+#rarity: TItemRareness
+--
+/+~UsableItem()/
++get_req_level(): int
++get_rarity(): TItemRareness
+/+get_class(): TClassId/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2820</x>
+      <y>680</y>
+      <w>15</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2770</x>
+      <y>835</y>
+      <w>15</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2710</x>
+      <y>890</y>
+      <w>85</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>/EquipableItem/
+--
+#stat_reqs: int*
+#stat_bons: int*
+--
+/+~EquipableItem()/
++get_stat_reqs(): int*
++get_stat_bons(): int*
+/+get_class(): TClassId/
+/+equip(): bool/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2585</x>
+      <y>1015</y>
+      <w>165</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>/Weapon/
+--
+damage: int*
+one-handed: bool
+kind: TWeaponKind
+--
++Weapon()
++Weapon(prototype: TWeaponPrototype)
++Weapon(prototype: TWeaponPrototype, level: int)
+/+~Weapon()/
++get_damage(): int*
++get_one_handed(): bool
+/+get_class(): TClassId/
+/+equip(): bool/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1680</x>
+      <y>620</y>
+      <w>70</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;dataType&gt;&gt;
+TDollSlot
+--
+items_allowed: bool*
+item: EquipableItem*
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1620</x>
+      <y>630</y>
+      <w>70</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=16</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2665</x>
+      <y>925</y>
+      <w>55</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;10.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2480</x>
+      <y>1155</y>
+      <w>190</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>RangedWeapon
+--
+#distance: int
+--
++RangedWeapon()
++RangedWeapon(prototype: TWeaponPrototype)
++RangedWeapon(prototype: TWeaponPrototype, level: int)
+/+~RangedWeapon()/
++get_distance()
+/+get_class(): TClassId/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2480</x>
+      <y>1020</y>
+      <w>50</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+TWeaponKind
+--
+WK_MELEE
+WK_PISTOL
+WK_SMG
+WK_RIFLE
+WK_SNIPER</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2525</x>
+      <y>1025</y>
+      <w>70</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2620</x>
+      <y>1120</y>
+      <w>15</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1745</x>
+      <y>645</y>
+      <w>1015</w>
+      <h>255</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=1
+m2=0..1</panel_attributes>
+    <additional_attributes>10.0;10.0;1990.0;10.0;1990.0;490.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3420</x>
+      <y>715</y>
+      <w>75</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>/LocalMapObject/
+--
+#texture_id: int
+--
++LocalMapObject()
+/+~LocalMapObject()/
+/+get_class():TClassId/
++get_texture_id(): int
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3065</x>
+      <y>640</y>
+      <w>365</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;160.0;710.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3305</x>
+      <y>825</y>
+      <w>80</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>CommonTile
+--
+#ap_cost: int
+--
++CommonTile()
+/+CommonTile()/
+/+get_class(): TClassId/
++get_ap_cost(): int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3415</x>
+      <y>825</y>
+      <w>80</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>UnpassableTile
+--
+
+--
++UnpassableTile()
+/+UnpassableTile()/
+/+get_class(): TClassId/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3450</x>
+      <y>770</y>
+      <w>15</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3340</x>
+      <y>800</y>
+      <w>15</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3450</x>
+      <y>800</y>
+      <w>15</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3340</x>
+      <y>795</y>
+      <w>230</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>440.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2680</x>
+      <y>1155</y>
+      <w>185</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>MeleeWeapon
+--
+
+--
++MeleedWeapon()
++MeleeWeapon(prototype: TWeaponPrototype)
++MeleeWeapon(prototype: TWeaponPrototype, level: int)
+/+~MeleeWeapon()/
+/+get_class(): TClassId/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2705</x>
+      <y>1120</y>
+      <w>15</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2780</x>
+      <y>1015</y>
+      <w>165</w>
+      <h>95</h>
+    </coordinates>
+    <panel_attributes>Armor
+--
+defense: int
+kind: TArmorKind
+--
++Armor()
++Armor(prototype: TArmorPrototype)
++Armor(prototype: TArmorPrototype, level: int)
+/+~Weapon()/
++get_defense(): int
+/+get_class(): TClassId/
+/+equip(): bool/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2790</x>
+      <y>925</y>
+      <w>60</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0;100.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2885</x>
+      <y>1155</y>
+      <w>50</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+TArmorKind
+--
+AK_LIGHT
+AK_MEDIUM
+AK_HEAVY</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2905</x>
+      <y>1105</y>
+      <w>15</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2985</x>
+      <y>825</y>
+      <w>150</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>QuestItem
+--
+#quest_id: Quest*
+--
++QuestItem(prototype: TCollectablePrototype)
+/+~QuestItem()/
+/+get_class(): TClassId/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2880</x>
+      <y>745</y>
+      <w>100</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>/CollectableItem/
+--
+#stack: int;
+--
++CollectableItem()
+/+~CollectableItem()/
+/+get_class(): TClassId/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3145</x>
+      <y>825</y>
+      <w>150</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Resource
+--
+#resource_id: int
+--
++Resource(prototype: TCollectablePrototype)
+/+~Resource()/
+/+get_class(): TClassId/
++get_resource_id();</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2975</x>
+      <y>780</y>
+      <w>245</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;470.0;10.0;470.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3060</x>
+      <y>780</y>
+      <w>15</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2905</x>
+      <y>680</y>
+      <w>15</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3085</x>
+      <y>500</y>
+      <w>15</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2865</x>
+      <y>920</y>
+      <w>165</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>/ConsumableItem/
+--
+#stack: int
+--
++QuestItem()
+/+~QuestItem()/
+/+get_class(): TClassId/
++get_stack(): int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2955</x>
+      <y>1015</y>
+      <w>75</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>HealingItem
+--
+#hp_restore: int
+--
++HealingItem()
+/+~HealingItem()/
+/+get_class(): TClassId/
++get_hp_restore(): int
++use()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3040</x>
+      <y>1015</y>
+      <w>75</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>Food
+--
+#nutricity: int
+--
++Food()
+/+~Food()/
+/+get_class(): TClassId/
++get_nutricity(): int
++use()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3025</x>
+      <y>925</y>
+      <w>60</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0;100.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2990</x>
+      <y>975</y>
+      <w>15</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3045</x>
+      <y>435</y>
+      <w>90</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>/NPC/
+--
+#greeting: char*
+--
++NPC()
+/+~NPC()/
+/+get_class(): TClassId/
++get_greeting()
+/+speak()/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3110</x>
+      <y>325</y>
+      <w>85</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>/Trader/
+--
+#charge: int
+--
++Trader()
+/+~Trader()/
+/+get_class(): TClassId/
++get_charge(): int
+/+form_assortment()/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3005</x>
+      <y>320</y>
+      <w>80</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>QuestGiver
+--
+#quest_id: Quest*
+--
++QuestGiver()
+/+~QuestGiver()/
+/+get_class(): TClassId/
++start_quest()
++end_quest()
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3035</x>
+      <y>385</y>
+      <w>15</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3145</x>
+      <y>390</y>
+      <w>15</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3035</x>
+      <y>400</y>
+      <w>125</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>230.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3085</x>
+      <y>405</y>
+      <w>15</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2990</x>
+      <y>160</y>
+      <w>75</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>WeaponTrader
+--
+#assortment: Weapon*
+--
++WeaponTrader()
+/+~WeaponTrader()/
+/+get_class(): TClassId/
+/+form_assortment()/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3075</x>
+      <y>160</y>
+      <w>75</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>ArmorTrader
+--
+#assortment: Armor*
+--
++ArmorTrader()
+/+~ArmorTrader()/
+/+get_class(): TClassId/
+/+form_assortment()/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3160</x>
+      <y>160</y>
+      <w>90</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>MunitionsTrader
+--
+#assortment: Collectable*
+--
++MunitionsTrader()
+/+~MunitionsTrader()/
+/+get_class(): TClassId/
+/+form_assortment()/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3260</x>
+      <y>160</y>
+      <w>75</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>BlackMarket
+--
+#assortment: Item*
+--
++BlackMarket()
+/+~BlackMarket()/
+/+get_class(): TClassId/
+/+form_assortment()/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3010</x>
+      <y>240</y>
+      <w>295</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>570.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3175</x>
+      <y>245</y>
+      <w>15</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;160.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3010</x>
+      <y>215</y>
+      <w>15</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3105</x>
+      <y>215</y>
+      <w>15</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3200</x>
+      <y>215</y>
+      <w>15</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3290</x>
+      <y>215</y>
+      <w>15</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3195</x>
+      <y>480</y>
+      <w>80</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>/Location/
+--
+#fight_prob: int
+#low_level: int
+#high_level: int
+--
++Location()
+/+Location()/
+/+get_class(): TClassId/
++get_fight_prob()
++get_low_level()
++get_high_level()
+/+entrance()/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3355</x>
+      <y>390</y>
+      <w>145</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>/Settlement/
+--
+#traders: Trader*
+#mercs: Henchman*
+--
++Settlements(prototype: TSettlementPrototype)
+/+Settlements()/
+/+get_class(): TClassId/
+/+entrance()/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3355</x>
+      <y>610</y>
+      <w>145</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>Wildlands
+--
+#enemies: Monster**
+#resources: Collectables*
+--
++Wildlands()
+/+Wildlands(prototype: TWildlandsPrototype)/
+/+get_class(): TClassId/
+/+entrance()/
++set_battlefield(battle: Battlefield*)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3270</x>
+      <y>525</y>
+      <w>60</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3315</x>
+      <y>415</y>
+      <w>15</w>
+      <h>245</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;470.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3315</x>
+      <y>410</y>
+      <w>50</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>80.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3315</x>
+      <y>640</y>
+      <w>50</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>80.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3355</x>
+      <y>505</y>
+      <w>155</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>/QuestPlace/
+--
+#quest: Quest*
+#enemies: Monster**
+--
++QuestPlace(prototype: TQuestPlacePrototype)
+/+QuestPlace()/
+/+get_class(): TClassId/
+/+entrance()/
++set_battlefield(battle: Battlefield*)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3315</x>
+      <y>520</y>
+      <w>50</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>80.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3190</x>
+      <y>325</y>
+      <w>210</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=0..4</panel_attributes>
+    <additional_attributes>400.0;130.0;400.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2850</x>
+      <y>120</y>
+      <w>470</w>
+      <h>515</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=1
+m2=1..100</panel_attributes>
+    <additional_attributes>920.0;80.0;920.0;10.0;10.0;10.0;10.0;1010.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3200</x>
+      <y>120</y>
+      <w>15</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3105</x>
+      <y>120</y>
+      <w>15</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3015</x>
+      <y>120</y>
+      <w>15</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2770</x>
+      <y>865</y>
+      <w>170</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>320.0;110.0;320.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3085</x>
+      <y>510</y>
+      <w>120</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>220.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3525</x>
+      <y>825</y>
+      <w>80</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Cover
+--
+#defense: int
+--
++Cover()
+/+Cover()/
+/+get_class(): TClassId/
++get_defense(): int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3555</x>
+      <y>800</y>
+      <w>15</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+</diagram>

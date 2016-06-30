@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{AC96B366-9043-4D52-BBC3-E1DAD0537396}</ProjectGuid>
+    <RootNamespace>backend_test</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\Action.cpp" />
+    <ClCompile Include="..\..\..\AliveGameObject.cpp" />
+    <ClCompile Include="..\..\..\Armour.cpp" />
+    <ClCompile Include="..\..\..\ArmourTrader.cpp" />
+    <ClCompile Include="..\..\..\Attack.cpp" />
+    <ClCompile Include="..\..\..\Battlefield.cpp" />
+    <ClCompile Include="..\..\..\BlackMarket.cpp" />
+    <ClCompile Include="..\..\..\Boots.cpp" />
+    <ClCompile Include="..\..\..\BuySellCommand.cpp" />
+    <ClCompile Include="..\..\..\Chest.cpp" />
+    <ClCompile Include="..\..\..\CollectableItem.cpp" />
+    <ClCompile Include="..\..\..\CommonMonster.cpp" />
+    <ClCompile Include="..\..\..\ConsumableItem.cpp" />
+    <ClCompile Include="..\..\..\DamagerMonster.cpp" />
+    <ClCompile Include="..\..\..\DemoNextLocationCommand.cpp" />
+    <ClCompile Include="..\..\..\EquipableItem.cpp" />
+    <ClCompile Include="..\..\..\Equipped.cpp" />
+    <ClCompile Include="..\..\..\Food.cpp" />
+    <ClCompile Include="..\..\..\Forge.cpp" />
+    <ClCompile Include="..\..\..\GameObject.cpp" />
+    <ClCompile Include="..\..\..\GlobalMap.cpp" />
+    <ClCompile Include="..\..\..\GruntMonster.cpp" />
+    <ClCompile Include="..\..\..\Hands.cpp" />
+    <ClCompile Include="..\..\..\Head.cpp" />
+    <ClCompile Include="..\..\..\HealingItem.cpp" />
+    <ClCompile Include="..\..\..\in_game_objects.cpp" />
+    <ClCompile Include="..\..\..\Item.cpp" />
+    <ClCompile Include="..\..\..\Legs.cpp" />
+    <ClCompile Include="..\..\..\LocalMap.cpp" />
+    <ClCompile Include="..\..\..\LocalMapCommand.cpp" />
+    <ClCompile Include="..\..\..\LocalMapObject.cpp" />
+    <ClCompile Include="..\..\..\Location.cpp" />
+    <ClCompile Include="..\..\..\Map.cpp" />
+    <ClCompile Include="..\..\..\MeleeWeapon.cpp" />
+    <ClCompile Include="..\..\..\Monster.cpp" />
+    <ClCompile Include="..\..\..\Move.cpp" />
+    <ClCompile Include="..\..\..\MunitionsTrader.cpp" />
+    <ClCompile Include="..\..\..\NewGameCommand.cpp" />
+    <ClCompile Include="..\..\..\NextLocationCommand.cpp" />
+    <ClCompile Include="..\..\..\PartyMember.cpp" />
+    <ClCompile Include="..\..\..\Player.cpp" />
+    <ClCompile Include="..\..\..\QuestItem.cpp" />
+    <ClCompile Include="..\..\..\QuestMonster.cpp" />
+    <ClCompile Include="..\..\..\RangedWeapon.cpp" />
+    <ClCompile Include="..\..\..\ResourceItem.cpp" />
+    <ClCompile Include="..\..\..\Settlement.cpp" />
+    <ClCompile Include="..\..\..\sqlite3.c" />
+    <ClCompile Include="..\..\..\Squad.cpp" />
+    <ClCompile Include="..\..\..\Stash.cpp" />
+    <ClCompile Include="..\..\..\StaticGameObject.cpp" />
+    <ClCompile Include="..\..\..\Storage.cpp" />
+    <ClCompile Include="..\..\..\SupportMonster.cpp" />
+    <ClCompile Include="..\..\..\Trinket.cpp" />
+    <ClCompile Include="..\..\..\UsableItem.cpp" />
+    <ClCompile Include="..\..\..\Weapon.cpp" />
+    <ClCompile Include="..\..\..\WeaponTrader.cpp" />
+    <ClCompile Include="..\..\..\World.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Action.h" />
+    <ClInclude Include="..\..\..\AliveGameObject.h" />
+    <ClInclude Include="..\..\..\Armour.h" />
+    <ClInclude Include="..\..\..\ArmourTrader.h" />
+    <ClInclude Include="..\..\..\Attack.h" />
+    <ClInclude Include="..\..\..\BackendCommand.h" />
+    <ClInclude Include="..\..\..\Battlefield.h" />
+    <ClInclude Include="..\..\..\BlackMarket.h" />
+    <ClInclude Include="..\..\..\Boots.h" />
+    <ClInclude Include="..\..\..\BuySellCommand.h" />
+    <ClInclude Include="..\..\..\Chest.h" />
+    <ClInclude Include="..\..\..\CollectableItem.h" />
+    <ClInclude Include="..\..\..\Command.h" />
+    <ClInclude Include="..\..\..\CommonMonster.h" />
+    <ClInclude Include="..\..\..\ConsumableItem.h" />
+    <ClInclude Include="..\..\..\DamagerMonster.h" />
+    <ClInclude Include="..\..\..\DemoNextLocationCommand.h" />
+    <ClInclude Include="..\..\..\EquipableItem.h" />
+    <ClInclude Include="..\..\..\Equipped.h" />
+    <ClInclude Include="..\..\..\FightEndTurnCommand.h" />
+    <ClInclude Include="..\..\..\Food.h" />
+    <ClInclude Include="..\..\..\Forge.h" />
+    <ClInclude Include="..\..\..\GameMap.h" />
+    <ClInclude Include="..\..\..\GameObject.h" />
+    <ClInclude Include="..\..\..\GlobalMap.h" />
+    <ClInclude Include="..\..\..\GlobMapGenerator.h" />
+    <ClInclude Include="..\..\..\GruntMonster.h" />
+    <ClInclude Include="..\..\..\Hands.h" />
+    <ClInclude Include="..\..\..\Head.h" />
+    <ClInclude Include="..\..\..\HealingItem.h" />
+    <ClInclude Include="..\..\..\Inventory.h" />
+    <ClInclude Include="..\..\..\InventoryCommand.h" />
+    <ClInclude Include="..\..\..\in_game_objects.h" />
+    <ClInclude Include="..\..\..\Item.h" />
+    <ClInclude Include="..\..\..\Legs.h" />
+    <ClInclude Include="..\..\..\LocalMap.h" />
+    <ClInclude Include="..\..\..\LocalMapCommand.h" />
+    <ClInclude Include="..\..\..\LocalMapObject.h" />
+    <ClInclude Include="..\..\..\Location.h" />
+    <ClInclude Include="..\..\..\MeleeWeapon.h" />
+    <ClInclude Include="..\..\..\Monster.h" />
+    <ClInclude Include="..\..\..\Move.h" />
+    <ClInclude Include="..\..\..\MunitionsTrader.h" />
+    <ClInclude Include="..\..\..\NewGameCommand.h" />
+    <ClInclude Include="..\..\..\NextLocationCommand.h" />
+    <ClInclude Include="..\..\..\NPC.h" />
+    <ClInclude Include="..\..\..\PartyMember.h" />
+    <ClInclude Include="..\..\..\Player.h" />
+    <ClInclude Include="..\..\..\prototypes.h" />
+    <ClInclude Include="..\..\..\QuestGiver.h" />
+    <ClInclude Include="..\..\..\QuestItem.h" />
+    <ClInclude Include="..\..\..\QuestMonster.h" />
+    <ClInclude Include="..\..\..\RangedWeapon.h" />
+    <ClInclude Include="..\..\..\ResourceItem.h" />
+    <ClInclude Include="..\..\..\Settlement.h" />
+    <ClInclude Include="..\..\..\sqlite3.h" />
+    <ClInclude Include="..\..\..\sqlite3ext.h" />
+    <ClInclude Include="..\..\..\Squad.h" />
+    <ClInclude Include="..\..\..\Stash.h" />
+    <ClInclude Include="..\..\..\StaticGameObject.h" />
+    <ClInclude Include="..\..\..\Storage.h" />
+    <ClInclude Include="..\..\..\SupportMonster.h" />
+    <ClInclude Include="..\..\..\Trader.h" />
+    <ClInclude Include="..\..\..\Trinket.h" />
+    <ClInclude Include="..\..\..\UsableItem.h" />
+    <ClInclude Include="..\..\..\Weapon.h" />
+    <ClInclude Include="..\..\..\WeaponTrader.h" />
+    <ClInclude Include="..\..\..\Wildlands.h" />
+    <ClInclude Include="..\..\..\World.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

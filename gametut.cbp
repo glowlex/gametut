@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="gametut" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug Win32">
+				<Option output="gametut" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add directory="D:/Documents/Visual Studio 2013/Projects/repo2016/gametut/gametut/source/polymorph" />
+					<Add directory="$(IncludePath)" />
+					<Add directory="D:/Documents/Visual Studio 2013/Projects/repo2016/gametut/gametut/source" />
+					<Add directory="C:/IRRDEV/irrlicht/include" />
+				</Compiler>
+				<Linker>
+					<Add library="opengl32.lib" />
+					<Add library="glut32.lib" />
+					<Add library="glu32.lib" />
+					<Add directory="D:/Documents/Visual Studio 2013/Projects/repo2016/gametut/gametut/source/polymorph" />
+					<Add directory="C:/IRRDEV/irrlicht/lib/Win32-visualstudio" />
+				</Linker>
+			</Target>
+			<Target title="Release Win32">
+				<Option output="gametut" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+		</Build>
+		<Unit filename="FieldInterface.cpp" />
+		<Unit filename="FieldInterface.h" />
+		<Unit filename="conf.cpp" />
+		<Unit filename="conf.h" />
+		<Unit filename="field.cpp" />
+		<Unit filename="field.h" />
+		<Unit filename="gametut.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="main.cpp" />
+		<Unit filename="media/opengl.frag" />
+		<Unit filename="media/opengl.vert" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
